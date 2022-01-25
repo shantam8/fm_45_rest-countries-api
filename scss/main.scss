@@ -20,6 +20,7 @@ select {
   font-family: "Nunito Sans", sans-serif;
   font-weight: 300;
   color: var(--text-color);
+  transition: all 0.2s ease-in-out;
 }
 
 h1 {
@@ -30,17 +31,25 @@ h2 {
   font-weight: 600;
 }
 
+button {
+  &:hover,
+  &:focus {
+    cursor: pointer;
+  }
+}
+
 body {
   padding-bottom: 2rem;
   background-color: var(--bg-color);
-
+  transition: all 0.2s ease-in-out;
 }
 
 header {
   @include box-shadow;
   padding-top: 2rem;
   padding-bottom: 2rem;
-  background-color:var(--element-color);
+  background-color: var(--element-color);
+  transition: all 0.2s ease-in-out;
 }
 
 .title-container {
@@ -57,15 +66,10 @@ header {
     border: none;
     background-color: transparent;
     font-weight: 600;
-
-    &:hover,
-    &:focus {
-      cursor: pointer;
-    }
   }
 }
 
-.input-options-container {
+#input-options-container {
   @include container-width;
   margin-top: 1rem;
 
@@ -79,14 +83,15 @@ header {
   position: relative;
   border-radius: 8px;
   overflow: hidden;
-  
+
   i {
     position: absolute;
     top: 1rem;
     left: 1.2rem;
-    color: var(--input-color);;
+    color: var(--input-color);
+    transition: all 0.2s ease-in-out;
   }
-  
+
   input {
     width: 100%;
     padding: 1rem 1rem 1rem 3rem;
@@ -94,36 +99,23 @@ header {
     background-color: var(--element-color);
     font-weight: 600;
     color: var(--input-color);
+    transition: all 0.2s ease-in-out;
   }
-}
-
-select {
-  @include box-shadow;
-  width: 10rem;
-  margin-top: 2rem;
-  padding: 1rem;
-  background: none;
-  border: none;
-  font-weight: 600;
 }
 
 #region-selector-container {
   position: relative;
-  margin-top: 2rem;
   width: 10rem;
+  margin-top: 2rem;
 
   #region-selector-title {
     @include box-shadow;
-    border-radius: 8px;
     width: 100%;
-
-    &:hover,
-    &:focus {
-      cursor: pointer;
-    }
+    border-radius: 8px;
   }
 
   button {
+    @include hover-shadow;
     display: flex;
     justify-content: space-between;
     padding: 1rem;
@@ -131,15 +123,16 @@ select {
     background-color: var(--element-color);
     font-weight: 600;
     text-align: left;
+    transition: all 0.2s ease-in-out;
   }
 
   #region-selector-menu {
     position: absolute;
     display: flex;
-    width: 10rem;
     flex-direction: column;
-    margin-top: 8px;
+    width: 10rem;
     max-height: 0px;
+    margin-top: 8px;
     border-radius: 8px;
     overflow: hidden;
     transition: all 0.2s ease-in-out;
@@ -148,25 +141,16 @@ select {
       @include box-shadow;
       max-height: 250px;
     }
-
-    button {
-      transition: background-color 0.2s ease-in-out;
-      &:hover,
-      &:focus {
-        cursor: pointer;
-        background-color: var(--accent-color);
-      }
-    }
   }
 }
 
-.countries-selection-box {
+#countries-selection-box {
   @include container-width;
   display: flex;
   flex-wrap: wrap;
+  align-items: center;
   gap: 1rem;
   padding-top: 2rem;
-  align-items: center;
 
   &.display-none {
     display: none;
@@ -176,16 +160,19 @@ select {
 .card {
   @include box-shadow;
   width: 265px;
-  height: 335px;
+  height: auto;
+  //height: 335px;
   border-radius: 8px;
-  overflow: hidden;
   background-color: var(--element-color);
+  transition: all 0.2s ease-in-out;
+  overflow: hidden;
 
   button {
     width: 100%;
     height: 160px;
-    background-color: turquoise;
     border: none;
+    background-position: center;
+    background-size: cover;
   }
 }
 
@@ -206,7 +193,7 @@ select {
   }
 }
 
-.country-details {
+#country-details {
   @include container-width;
   padding-top: 2rem;
 
@@ -216,17 +203,19 @@ select {
 
   button {
     @include box-shadow;
+    @include hover-shadow;
     padding: 0.5rem 1.5rem;
-    background-color: var(--element-color);
     border: none;
+    background-color: var(--element-color);
+    transition: all 0.2s ease-in-out;
   }
 }
 
-.country-details-container {
+#country-details-container {
   margin-top: 3rem;
 }
 
-.country-detail-flag {
+#country-detail-flag {
   width: 100%;
   height: auto;
   background-color: turquoise;
@@ -262,20 +251,23 @@ select {
   }
 }
 
-.border-countries-container {
+#border-countries-container {
   display: flex;
   flex-wrap: wrap;
-  margin-top: 0.5rem;
   gap: 0.5rem;
+  margin-top: 0.5rem;
 }
 
 .border-country {
   @include box-shadow;
-  display: inline-block;
+  @include hover-shadow;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   width: 80px;
   padding: 0.5rem 0;
-  background-color: var(--element-color);
   border-radius: 4px;
+  background-color: var(--element-color);
   text-align: center;
   font-size: 0.7rem;
 }
@@ -283,16 +275,18 @@ select {
 @media screen and (min-width: 30rem) {
   header {
     .title-container {
-      h1,
-      button {
+      h1 {
         font-size: 1.2rem;
+      }
+      button {
+        font-size: 1rem;
       }
     }
   }
 }
 
 @media screen and (min-width: 35rem) {
-  .input-options-container {
+  #input-options-container {
     display: flex;
     flex-wrap: nowrap;
     justify-content: space-between;
@@ -331,7 +325,7 @@ select {
 }
 
 @media screen and (min-width: 50rem) {
-  .input-options-container {
+  #input-options-container {
     .input-container {
       width: 400px;
 
@@ -342,17 +336,17 @@ select {
     }
   }
 
-  .countries-selection-box {
+  #countries-selection-box {
     gap: 2rem;
   }
 
-  .country-details-container {
+  #country-details-container {
     display: flex;
     justify-content: center;
     align-items: center;
     gap: 2rem;
 
-    .country-detail-flag {
+    #country-detail-flag {
       flex: 1;
     }
 
@@ -372,17 +366,17 @@ select {
 }
 
 @media screen and (min-width: 60rem) {
-  .input-options-container {
+  #input-options-container {
     .input-container {
       width: 480px;
     }
   }
 
-  .countries-selection-box {
+  #countries-selection-box {
     gap: 3rem;
   }
 
-  .country-details-container {
+  #country-details-container {
     gap: 3rem;
   }
 }
@@ -390,14 +384,13 @@ select {
 @media screen and (min-width: 70rem) {
   header {
     .title-container {
-      h1,
-      button {
+      h1 {
         font-size: 1.4rem;
       }
     }
   }
 
-  .countries-selection-box {
+  #countries-selection-box {
     gap: 4rem;
   }
 
@@ -410,13 +403,13 @@ select {
     }
   }
 
-  .country-details-container {
+  #country-details-container {
     gap: 5rem;
   }
 }
 
 @media screen and (min-width: 80rem) {
-  .country-details-container {
+  #country-details-container {
     gap: 8rem;
   }
 }

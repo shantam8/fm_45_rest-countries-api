@@ -33,6 +33,8 @@ select {
   font-family: "Nunito Sans", sans-serif;
   font-weight: 300;
   color: var(--text-color);
+  -webkit-transition: all 0.2s ease-in-out;
+  transition: all 0.2s ease-in-out;
 }
 
 h1 {
@@ -43,17 +45,26 @@ h2 {
   font-weight: 600;
 }
 
+button:hover, button:focus {
+  cursor: pointer;
+}
+
 body {
   padding-bottom: 2rem;
   background-color: var(--bg-color);
+  -webkit-transition: all 0.2s ease-in-out;
+  transition: all 0.2s ease-in-out;
 }
 
 header {
   -webkit-box-shadow: 0px 0px 7px 3px var(--accent-color);
           box-shadow: 0px 0px 7px 3px var(--accent-color);
+  -webkit-transition: all 0.2s ease-in-out;
+  transition: all 0.2s ease-in-out;
   padding-top: 2rem;
   padding-bottom: 2rem;
   background-color: var(--element-color);
+  transition: all 0.2s ease-in-out;
 }
 
 .title-container {
@@ -138,67 +149,63 @@ header {
   font-weight: 600;
 }
 
-.title-container button:hover, .title-container button:focus {
-  cursor: pointer;
-}
-
-.input-options-container {
+#input-options-container {
   margin-left: 0.8rem;
   margin-right: 0.8rem;
   margin-top: 1rem;
 }
 
 @media screen and (min-width: 20rem) {
-  .input-options-container {
+  #input-options-container {
     margin-left: 1.5rem;
     margin-right: 1.5rem;
   }
 }
 
 @media screen and (min-width: 30rem) {
-  .input-options-container {
+  #input-options-container {
     margin-left: 2rem;
     margin-right: 2rem;
   }
 }
 
 @media screen and (min-width: 40rem) {
-  .input-options-container {
+  #input-options-container {
     margin-left: 3rem;
     margin-right: 3rem;
   }
 }
 
 @media screen and (min-width: 50rem) {
-  .input-options-container {
+  #input-options-container {
     margin-left: 4rem;
     margin-right: 4rem;
   }
 }
 
 @media screen and (min-width: 60rem) {
-  .input-options-container {
+  #input-options-container {
     margin-left: 5rem;
     margin-right: 5rem;
   }
 }
 
 @media screen and (min-width: 70rem) {
-  .input-options-container {
+  #input-options-container {
     margin-left: 6rem;
     margin-right: 6rem;
   }
 }
 
 @media screen and (min-width: 80rem) {
-  .input-options-container {
+  #input-options-container {
     margin-left: 7rem;
     margin-right: 7rem;
   }
 }
 
 @media screen and (min-width: 94rem) {
-  .input-options-container {
+  #input-options-container {
     margin-left: unset;
     margin-right: unset;
     max-width: 80rem;
@@ -206,13 +213,15 @@ header {
   }
 }
 
-.input-options-container.display-none {
+#input-options-container.display-none {
   display: none;
 }
 
 .input-container {
   -webkit-box-shadow: 0px 0px 7px 3px var(--accent-color);
           box-shadow: 0px 0px 7px 3px var(--accent-color);
+  -webkit-transition: all 0.2s ease-in-out;
+  transition: all 0.2s ease-in-out;
   position: relative;
   border-radius: 8px;
   overflow: hidden;
@@ -223,6 +232,8 @@ header {
   top: 1rem;
   left: 1.2rem;
   color: var(--input-color);
+  -webkit-transition: all 0.2s ease-in-out;
+  transition: all 0.2s ease-in-out;
 }
 
 .input-container input {
@@ -232,37 +243,28 @@ header {
   background-color: var(--element-color);
   font-weight: 600;
   color: var(--input-color);
-}
-
-select {
-  -webkit-box-shadow: 0px 0px 7px 3px var(--accent-color);
-          box-shadow: 0px 0px 7px 3px var(--accent-color);
-  width: 10rem;
-  margin-top: 2rem;
-  padding: 1rem;
-  background: none;
-  border: none;
-  font-weight: 600;
+  -webkit-transition: all 0.2s ease-in-out;
+  transition: all 0.2s ease-in-out;
 }
 
 #region-selector-container {
   position: relative;
-  margin-top: 2rem;
   width: 10rem;
+  margin-top: 2rem;
 }
 
 #region-selector-container #region-selector-title {
   -webkit-box-shadow: 0px 0px 7px 3px var(--accent-color);
           box-shadow: 0px 0px 7px 3px var(--accent-color);
-  border-radius: 8px;
+  -webkit-transition: all 0.2s ease-in-out;
+  transition: all 0.2s ease-in-out;
   width: 100%;
-}
-
-#region-selector-container #region-selector-title:hover, #region-selector-container #region-selector-title:focus {
-  cursor: pointer;
+  border-radius: 8px;
 }
 
 #region-selector-container button {
+  -webkit-transition: background-color 0.2s ease-in-out;
+  transition: background-color 0.2s ease-in-out;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -274,6 +276,12 @@ select {
   background-color: var(--element-color);
   font-weight: 600;
   text-align: left;
+  -webkit-transition: all 0.2s ease-in-out;
+  transition: all 0.2s ease-in-out;
+}
+
+#region-selector-container button:hover, #region-selector-container button:focus {
+  background-color: var(--accent-color);
 }
 
 #region-selector-container #region-selector-menu {
@@ -281,13 +289,13 @@ select {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  width: 10rem;
   -webkit-box-orient: vertical;
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
-  margin-top: 8px;
+  width: 10rem;
   max-height: 0px;
+  margin-top: 8px;
   border-radius: 8px;
   overflow: hidden;
   -webkit-transition: all 0.2s ease-in-out;
@@ -297,20 +305,12 @@ select {
 #region-selector-container #region-selector-menu.open {
   -webkit-box-shadow: 0px 0px 7px 3px var(--accent-color);
           box-shadow: 0px 0px 7px 3px var(--accent-color);
+  -webkit-transition: all 0.2s ease-in-out;
+  transition: all 0.2s ease-in-out;
   max-height: 250px;
 }
 
-#region-selector-container #region-selector-menu button {
-  -webkit-transition: background-color 0.2s ease-in-out;
-  transition: background-color 0.2s ease-in-out;
-}
-
-#region-selector-container #region-selector-menu button:hover, #region-selector-container #region-selector-menu button:focus {
-  cursor: pointer;
-  background-color: var(--accent-color);
-}
-
-.countries-selection-box {
+#countries-selection-box {
   margin-left: 0.8rem;
   margin-right: 0.8rem;
   display: -webkit-box;
@@ -318,64 +318,64 @@ select {
   display: flex;
   -ms-flex-wrap: wrap;
       flex-wrap: wrap;
-  gap: 1rem;
-  padding-top: 2rem;
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
+  gap: 1rem;
+  padding-top: 2rem;
 }
 
 @media screen and (min-width: 20rem) {
-  .countries-selection-box {
+  #countries-selection-box {
     margin-left: 1.5rem;
     margin-right: 1.5rem;
   }
 }
 
 @media screen and (min-width: 30rem) {
-  .countries-selection-box {
+  #countries-selection-box {
     margin-left: 2rem;
     margin-right: 2rem;
   }
 }
 
 @media screen and (min-width: 40rem) {
-  .countries-selection-box {
+  #countries-selection-box {
     margin-left: 3rem;
     margin-right: 3rem;
   }
 }
 
 @media screen and (min-width: 50rem) {
-  .countries-selection-box {
+  #countries-selection-box {
     margin-left: 4rem;
     margin-right: 4rem;
   }
 }
 
 @media screen and (min-width: 60rem) {
-  .countries-selection-box {
+  #countries-selection-box {
     margin-left: 5rem;
     margin-right: 5rem;
   }
 }
 
 @media screen and (min-width: 70rem) {
-  .countries-selection-box {
+  #countries-selection-box {
     margin-left: 6rem;
     margin-right: 6rem;
   }
 }
 
 @media screen and (min-width: 80rem) {
-  .countries-selection-box {
+  #countries-selection-box {
     margin-left: 7rem;
     margin-right: 7rem;
   }
 }
 
 @media screen and (min-width: 94rem) {
-  .countries-selection-box {
+  #countries-selection-box {
     margin-left: unset;
     margin-right: unset;
     max-width: 80rem;
@@ -383,25 +383,29 @@ select {
   }
 }
 
-.countries-selection-box.display-none {
+#countries-selection-box.display-none {
   display: none;
 }
 
 .card {
   -webkit-box-shadow: 0px 0px 7px 3px var(--accent-color);
           box-shadow: 0px 0px 7px 3px var(--accent-color);
+  -webkit-transition: all 0.2s ease-in-out;
+  transition: all 0.2s ease-in-out;
   width: 265px;
-  height: 335px;
+  height: auto;
   border-radius: 8px;
-  overflow: hidden;
   background-color: var(--element-color);
+  transition: all 0.2s ease-in-out;
+  overflow: hidden;
 }
 
 .card button {
   width: 100%;
   height: 160px;
-  background-color: turquoise;
   border: none;
+  background-position: center;
+  background-size: cover;
 }
 
 .country-info-box {
@@ -421,63 +425,63 @@ select {
   line-height: 1.5rem;
 }
 
-.country-details {
+#country-details {
   margin-left: 0.8rem;
   margin-right: 0.8rem;
   padding-top: 2rem;
 }
 
 @media screen and (min-width: 20rem) {
-  .country-details {
+  #country-details {
     margin-left: 1.5rem;
     margin-right: 1.5rem;
   }
 }
 
 @media screen and (min-width: 30rem) {
-  .country-details {
+  #country-details {
     margin-left: 2rem;
     margin-right: 2rem;
   }
 }
 
 @media screen and (min-width: 40rem) {
-  .country-details {
+  #country-details {
     margin-left: 3rem;
     margin-right: 3rem;
   }
 }
 
 @media screen and (min-width: 50rem) {
-  .country-details {
+  #country-details {
     margin-left: 4rem;
     margin-right: 4rem;
   }
 }
 
 @media screen and (min-width: 60rem) {
-  .country-details {
+  #country-details {
     margin-left: 5rem;
     margin-right: 5rem;
   }
 }
 
 @media screen and (min-width: 70rem) {
-  .country-details {
+  #country-details {
     margin-left: 6rem;
     margin-right: 6rem;
   }
 }
 
 @media screen and (min-width: 80rem) {
-  .country-details {
+  #country-details {
     margin-left: 7rem;
     margin-right: 7rem;
   }
 }
 
 @media screen and (min-width: 94rem) {
-  .country-details {
+  #country-details {
     margin-left: unset;
     margin-right: unset;
     max-width: 80rem;
@@ -485,23 +489,32 @@ select {
   }
 }
 
-.country-details.display-none {
+#country-details.display-none {
   display: none;
 }
 
-.country-details button {
+#country-details button {
   -webkit-box-shadow: 0px 0px 7px 3px var(--accent-color);
           box-shadow: 0px 0px 7px 3px var(--accent-color);
+  -webkit-transition: all 0.2s ease-in-out;
+  transition: all 0.2s ease-in-out;
+  -webkit-transition: background-color 0.2s ease-in-out;
+  transition: background-color 0.2s ease-in-out;
   padding: 0.5rem 1.5rem;
-  background-color: var(--element-color);
   border: none;
+  background-color: var(--element-color);
+  transition: all 0.2s ease-in-out;
 }
 
-.country-details-container {
+#country-details button:hover, #country-details button:focus {
+  background-color: var(--accent-color);
+}
+
+#country-details-container {
   margin-top: 3rem;
 }
 
-.country-detail-flag {
+#country-detail-flag {
   width: 100%;
   height: auto;
   background-color: turquoise;
@@ -539,37 +552,55 @@ select {
   line-height: 2rem;
 }
 
-.border-countries-container {
+#border-countries-container {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
   -ms-flex-wrap: wrap;
       flex-wrap: wrap;
-  margin-top: 0.5rem;
   gap: 0.5rem;
+  margin-top: 0.5rem;
 }
 
 .border-country {
   -webkit-box-shadow: 0px 0px 7px 3px var(--accent-color);
           box-shadow: 0px 0px 7px 3px var(--accent-color);
-  display: inline-block;
+  -webkit-transition: all 0.2s ease-in-out;
+  transition: all 0.2s ease-in-out;
+  -webkit-transition: background-color 0.2s ease-in-out;
+  transition: background-color 0.2s ease-in-out;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
   width: 80px;
   padding: 0.5rem 0;
-  background-color: var(--element-color);
   border-radius: 4px;
+  background-color: var(--element-color);
   text-align: center;
   font-size: 0.7rem;
 }
 
+.border-country:hover, .border-country:focus {
+  background-color: var(--accent-color);
+}
+
 @media screen and (min-width: 30rem) {
-  header .title-container h1,
-  header .title-container button {
+  header .title-container h1 {
     font-size: 1.2rem;
+  }
+  header .title-container button {
+    font-size: 1rem;
   }
 }
 
 @media screen and (min-width: 35rem) {
-  .input-options-container {
+  #input-options-container {
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
@@ -583,11 +614,11 @@ select {
             align-items: center;
     margin-top: 2rem;
   }
-  .input-options-container .input-container {
+  #input-options-container .input-container {
     display: inline-block;
     width: 300px;
   }
-  .input-options-container #region-selector-container {
+  #input-options-container #region-selector-container {
     display: inline-block;
     margin-top: 0;
   }
@@ -609,17 +640,17 @@ select {
 }
 
 @media screen and (min-width: 50rem) {
-  .input-options-container .input-container {
+  #input-options-container .input-container {
     width: 400px;
   }
-  .input-options-container .input-container #region-selector-container,
-  .input-options-container .input-container #region-selector-menu {
+  #input-options-container .input-container #region-selector-container,
+  #input-options-container .input-container #region-selector-menu {
     width: 200px;
   }
-  .countries-selection-box {
+  #countries-selection-box {
     gap: 2rem;
   }
-  .country-details-container {
+  #country-details-container {
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
@@ -631,58 +662,57 @@ select {
             align-items: center;
     gap: 2rem;
   }
-  .country-details-container .country-detail-flag {
+  #country-details-container #country-detail-flag {
     -webkit-box-flex: 1;
         -ms-flex: 1;
             flex: 1;
   }
-  .country-details-container .country-detail-text {
+  #country-details-container .country-detail-text {
     -webkit-box-flex: 1;
         -ms-flex: 1;
             flex: 1;
     margin-top: 0;
   }
-  .country-details-container .country-detail-text-container {
+  #country-details-container .country-detail-text-container {
     -webkit-box-pack: justify;
         -ms-flex-pack: justify;
             justify-content: space-between;
   }
-  .country-details-container .country-detail-text-container .text-container2 {
+  #country-details-container .country-detail-text-container .text-container2 {
     margin-left: 0rem;
   }
 }
 
 @media screen and (min-width: 60rem) {
-  .input-options-container .input-container {
+  #input-options-container .input-container {
     width: 480px;
   }
-  .countries-selection-box {
+  #countries-selection-box {
     gap: 3rem;
   }
-  .country-details-container {
+  #country-details-container {
     gap: 3rem;
   }
 }
 
 @media screen and (min-width: 70rem) {
-  header .title-container h1,
-  header .title-container button {
+  header .title-container h1 {
     font-size: 1.4rem;
   }
-  .countries-selection-box {
+  #countries-selection-box {
     gap: 4rem;
   }
   .country-detail-text .country-detail-text-container p {
     font-size: 1rem;
     line-height: 2.2rem;
   }
-  .country-details-container {
+  #country-details-container {
     gap: 5rem;
   }
 }
 
 @media screen and (min-width: 80rem) {
-  .country-details-container {
+  #country-details-container {
     gap: 8rem;
   }
 }
