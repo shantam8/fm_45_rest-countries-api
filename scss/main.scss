@@ -1,0 +1,422 @@
+@import url("https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@300;600;800&display=swap");
+
+@import "colors";
+@import "mixins";
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+h1,
+h2,
+h3,
+p,
+span,
+button,
+input,
+select {
+  font-family: "Nunito Sans", sans-serif;
+  font-weight: 300;
+  color: var(--text-color);
+}
+
+h1 {
+  font-weight: 800;
+}
+
+h2 {
+  font-weight: 600;
+}
+
+body {
+  padding-bottom: 2rem;
+  background-color: var(--bg-color);
+
+}
+
+header {
+  @include box-shadow;
+  padding-top: 2rem;
+  padding-bottom: 2rem;
+  background-color:var(--element-color);
+}
+
+.title-container {
+  @include container-width;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  h1 {
+    font-size: 1rem;
+  }
+
+  button {
+    border: none;
+    background-color: transparent;
+    font-weight: 600;
+
+    &:hover,
+    &:focus {
+      cursor: pointer;
+    }
+  }
+}
+
+.input-options-container {
+  @include container-width;
+  margin-top: 1rem;
+
+  &.display-none {
+    display: none;
+  }
+}
+
+.input-container {
+  @include box-shadow;
+  position: relative;
+  border-radius: 8px;
+  overflow: hidden;
+  
+  i {
+    position: absolute;
+    top: 1rem;
+    left: 1.2rem;
+    color: var(--input-color);;
+  }
+  
+  input {
+    width: 100%;
+    padding: 1rem 1rem 1rem 3rem;
+    border: none;
+    background-color: var(--element-color);
+    font-weight: 600;
+    color: var(--input-color);
+  }
+}
+
+select {
+  @include box-shadow;
+  width: 10rem;
+  margin-top: 2rem;
+  padding: 1rem;
+  background: none;
+  border: none;
+  font-weight: 600;
+}
+
+#region-selector-container {
+  position: relative;
+  margin-top: 2rem;
+  width: 10rem;
+
+  #region-selector-title {
+    @include box-shadow;
+    border-radius: 8px;
+    width: 100%;
+
+    &:hover,
+    &:focus {
+      cursor: pointer;
+    }
+  }
+
+  button {
+    display: flex;
+    justify-content: space-between;
+    padding: 1rem;
+    border: none;
+    background-color: var(--element-color);
+    font-weight: 600;
+    text-align: left;
+  }
+
+  #region-selector-menu {
+    position: absolute;
+    display: flex;
+    width: 10rem;
+    flex-direction: column;
+    margin-top: 8px;
+    max-height: 0px;
+    border-radius: 8px;
+    overflow: hidden;
+    transition: all 0.2s ease-in-out;
+
+    &.open {
+      @include box-shadow;
+      max-height: 250px;
+    }
+
+    button {
+      transition: background-color 0.2s ease-in-out;
+      &:hover,
+      &:focus {
+        cursor: pointer;
+        background-color: var(--accent-color);
+      }
+    }
+  }
+}
+
+.countries-selection-box {
+  @include container-width;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  padding-top: 2rem;
+  align-items: center;
+
+  &.display-none {
+    display: none;
+  }
+}
+
+.card {
+  @include box-shadow;
+  width: 265px;
+  height: 335px;
+  border-radius: 8px;
+  overflow: hidden;
+  background-color: var(--element-color);
+
+  button {
+    width: 100%;
+    height: 160px;
+    background-color: turquoise;
+    border: none;
+  }
+}
+
+.country-info-box {
+  padding: 1rem 1.5rem;
+
+  h2 {
+    margin-bottom: 1rem;
+    font-weight: 800;
+  }
+
+  p span:first-child {
+    font-weight: 600;
+  }
+
+  p {
+    line-height: 1.5rem;
+  }
+}
+
+.country-details {
+  @include container-width;
+  padding-top: 2rem;
+
+  &.display-none {
+    display: none;
+  }
+
+  button {
+    @include box-shadow;
+    padding: 0.5rem 1.5rem;
+    background-color: var(--element-color);
+    border: none;
+  }
+}
+
+.country-details-container {
+  margin-top: 3rem;
+}
+
+.country-detail-flag {
+  width: 100%;
+  height: auto;
+  background-color: turquoise;
+}
+
+.country-detail-text {
+  margin-top: 2rem;
+
+  h2 {
+    font-weight: 800;
+  }
+
+  h3 {
+    font-weight: 600;
+  }
+}
+
+.country-detail-text-container {
+  margin-top: 1rem;
+
+  .text-container1,
+  .text-container2 {
+    margin-bottom: 2rem;
+
+    p span:first-child {
+      font-weight: 600;
+    }
+
+    p {
+      font-size: 0.8rem;
+      line-height: 2rem;
+    }
+  }
+}
+
+.border-countries-container {
+  display: flex;
+  flex-wrap: wrap;
+  margin-top: 0.5rem;
+  gap: 0.5rem;
+}
+
+.border-country {
+  @include box-shadow;
+  display: inline-block;
+  width: 80px;
+  padding: 0.5rem 0;
+  background-color: var(--element-color);
+  border-radius: 4px;
+  text-align: center;
+  font-size: 0.7rem;
+}
+
+@media screen and (min-width: 30rem) {
+  header {
+    .title-container {
+      h1,
+      button {
+        font-size: 1.2rem;
+      }
+    }
+  }
+}
+
+@media screen and (min-width: 35rem) {
+  .input-options-container {
+    display: flex;
+    flex-wrap: nowrap;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 2rem;
+
+    .input-container {
+      display: inline-block;
+      width: 300px;
+    }
+
+    #region-selector-container {
+      display: inline-block;
+      margin-top: 0;
+    }
+  }
+
+  .country-detail-text {
+    .country-detail-text-container {
+      display: flex;
+
+      .text-container2 {
+        margin-left: 5rem;
+      }
+
+      p {
+        font-size: 0.9rem;
+      }
+    }
+
+    .border-country {
+      width: 100px;
+      font-size: 0.9rem;
+    }
+  }
+}
+
+@media screen and (min-width: 50rem) {
+  .input-options-container {
+    .input-container {
+      width: 400px;
+
+      #region-selector-container,
+      #region-selector-menu {
+        width: 200px;
+      }
+    }
+  }
+
+  .countries-selection-box {
+    gap: 2rem;
+  }
+
+  .country-details-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 2rem;
+
+    .country-detail-flag {
+      flex: 1;
+    }
+
+    .country-detail-text {
+      flex: 1;
+      margin-top: 0;
+    }
+
+    .country-detail-text-container {
+      justify-content: space-between;
+
+      .text-container2 {
+        margin-left: 0rem;
+      }
+    }
+  }
+}
+
+@media screen and (min-width: 60rem) {
+  .input-options-container {
+    .input-container {
+      width: 480px;
+    }
+  }
+
+  .countries-selection-box {
+    gap: 3rem;
+  }
+
+  .country-details-container {
+    gap: 3rem;
+  }
+}
+
+@media screen and (min-width: 70rem) {
+  header {
+    .title-container {
+      h1,
+      button {
+        font-size: 1.4rem;
+      }
+    }
+  }
+
+  .countries-selection-box {
+    gap: 4rem;
+  }
+
+  .country-detail-text {
+    .country-detail-text-container {
+      p {
+        font-size: 1rem;
+        line-height: 2.2rem;
+      }
+    }
+  }
+
+  .country-details-container {
+    gap: 5rem;
+  }
+}
+
+@media screen and (min-width: 80rem) {
+  .country-details-container {
+    gap: 8rem;
+  }
+}

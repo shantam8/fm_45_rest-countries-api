@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>REST Countries API | shantam8</title>
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.7.2/font/bootstrap-icons.css"
+    />
+    <link rel="stylesheet" href="/css/main.css" />
+    <script src="./js/main.js" defer></script>
+  </head>
+  <body>
+    <header>
+      <div class="title-container">
+        <h1>Where in the world?</h1>
+
+        <button class="dark-mode-container">
+          <i class="bi bi-moon"></i>
+          Dark Mode
+        </button>
+      </div>
+    </header>
+
+    <main>
+      <section class="input-options-container display-none">
+        <div class="input-container">
+          <i class="bi bi-search"></i>
+          <input type="text" placeholder="Search for a country..." />
+        </div>
+
+        <div id="region-selector-container">
+          <button
+            id="region-selector-title"
+            type="button"
+            class="btn-selection-title"
+          >
+            Filter by Region <i class="bi bi-chevron-down"></i>
+          </button>
+
+          <div id="region-selector-menu" class="button-group">
+            <button type="button" class="btn-selection">Africa</button>
+            <button type="button" class="btn-selection">America</button>
+            <button type="button" class="btn-selection">Asia</button>
+            <button type="button" class="btn-selection">Europe</button>
+            <button type="button" class="btn-selection">Oceania</button>
+          </div>
+        </div>
+      </section>
+
+      <section class="countries-selection-box display-none">
+        <div class="card">
+          <button class="country-flag"></button>
+          <div class="country-info-box">
+            <h2 class="country-name">Germany</h2>
+            <p>
+              <span>Population: </span>
+              <span class="text-population">84.456</span>
+            </p>
+            <p><span>Region: </span><span class="text-region">Europe</span></p>
+            <p>
+              <span>Capital: </span><span class="text-capital">Berlin</span>
+            </p>
+          </div>
+        </div>
+
+        <div class="card">
+          <button class="country-flag"></button>
+          <div class="country-info-box">
+            <h2 class="country-name"></h2>
+            <p>
+              <span>Population:</span
+              ><span class="text-population">84.456</span>
+            </p>
+            <p><span>Region:</span><span class="text-region">Europe</span></p>
+            <p><span>Capital:</span><span class="text-capital">Berlin</span></p>
+          </div>
+        </div>
+      </section>
+
+      <section class="country-details">
+        <button><i class="bi bi-arrow-left"></i> Back</button>
+
+        <div class="country-details-container">
+          <img class="country-detail-flag" src="./meditation.jpg" />
+
+          <div class="country-detail-text">
+            <h2 class="country-detail-name">Germany</h2>
+
+            <div class="country-detail-text-container">
+              <div class="text-container1">
+                <p>
+                  <span>Native Name</span>
+                  <span class="detail-native-name">Belgie</span>
+                </p>
+                <p>
+                  <span>Population</span>
+                  <span class="detail-population">12.123</span>
+                </p>
+                <p>
+                  <span>Region</span><span class="detail-region">Europe</span>
+                </p>
+                <p>
+                  <span>Sub Region</span>
+                  <span class="detail-sub-region">Western Europe</span>
+                </p>
+                <p>
+                  <span>Capital</span><span class="detail-capital">Ulm</span>
+                </p>
+              </div>
+              <div class="text-container2">
+                <p>
+                  <span>Top Level Domain</span>
+                  <span class="detail-tld">.be</span>
+                </p>
+                <p>
+                  <span>Currencies</span>
+                  <span class="detail-currency">Western Europe</span>
+                </p>
+                <p>
+                  <span>Languages</span>
+                  <span class="detail-languages">Dutch, French</span>
+                </p>
+              </div>
+            </div>
+
+            <h3>Border Countries</h3>
+            <div class="border-countries-container">
+              <span class="border-country"> France </span>
+              <span class="border-country"> Germany </span>
+              <span class="border-country"> Netherlands </span>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+  </body>
+</html>
