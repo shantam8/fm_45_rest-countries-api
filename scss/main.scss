@@ -14,6 +14,7 @@ h2,
 h3,
 p,
 span,
+div,
 button,
 input,
 select {
@@ -124,6 +125,12 @@ header {
     font-weight: 600;
     text-align: left;
     transition: all 0.2s ease-in-out;
+  }
+
+  i{
+    position: absolute;
+    top: 1rem;
+    right: 0.5rem;
   }
 
   #region-selector-menu {

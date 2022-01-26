@@ -28,7 +28,7 @@
       <section id="input-options-container">
         <div class="input-container">
           <i class="bi bi-search"></i>
-          <input type="text" placeholder="Search for a country..." />
+          <input id="input-field-country" type="text" placeholder="Search for a country..." />
         </div>
 
         <div id="region-selector-container">
@@ -37,15 +37,25 @@
             type="button"
             class="btn-selection-title"
           >
-            Filter by Region <i class="bi bi-chevron-down"></i>
+            Filter by Region
           </button>
-
+          <i class="bi bi-chevron-down"></i>
           <div id="region-selector-menu" class="button-group">
-            <button type="button" class="btn-selection" value="Africa">Africa</button>
-            <button type="button" class="btn-selection" value="Americas">Americas</button>
-            <button type="button" class="btn-selection" value="Asia">Asia</button>
-            <button type="button" class="btn-selection" value="Europe">Europe</button>
-            <button type="button" class="btn-selection" value="Oceania">Oceania</button>
+            <button type="button" class="btn-selection" value="Africa">
+              Africa
+            </button>
+            <button type="button" class="btn-selection" value="Americas">
+              Americas
+            </button>
+            <button type="button" class="btn-selection" value="Asia">
+              Asia
+            </button>
+            <button type="button" class="btn-selection" value="Europe">
+              Europe
+            </button>
+            <button type="button" class="btn-selection" value="Oceania">
+              Oceania
+            </button>
           </div>
         </div>
       </section>
@@ -53,7 +63,9 @@
       <section id="countries-selection-box"></section>
 
       <section id="country-details" class="display-none">
-        <button id="btn-leave-details"><i class="bi bi-arrow-left"></i> Back</button>
+        <button id="btn-leave-details">
+          <i class="bi bi-arrow-left"></i> Back
+        </button>
 
         <div id="country-details-container">
           <img id="country-detail-flag" src="" />
@@ -71,16 +83,12 @@
                   <span>Population: </span>
                   <span id="detail-population"></span>
                 </p>
-                <p>
-                  <span>Region: </span><span id="detail-region"></span>
-                </p>
+                <p><span>Region: </span><span id="detail-region"></span></p>
                 <p>
                   <span>Sub Region: </span>
                   <span id="detail-sub-region"></span>
                 </p>
-                <p>
-                  <span>Capital: </span><span id="detail-capital">Ul</span>
-                </p>
+                <p><span>Capital: </span><span id="detail-capital">Ul</span></p>
               </div>
               <div class="text-container2">
                 <p>

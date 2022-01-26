@@ -9,6 +9,7 @@ let btnsRegionSelectorMenu = document.querySelectorAll(".btn-selection");
 
 let regionSelectorMenuBox = document.querySelector("#region-selector-menu");
 
+let inputFieldCountry = document.querySelector("#input-field-country");
 let inputOptionsContainer = document.querySelector("#input-options-container");
 let countriesSelectionBox = document.querySelector("#countries-selection-box");
 let countryDetails = document.querySelector("#country-details");
@@ -37,7 +38,6 @@ function loadAllCountries() {
       }
 
       allCountriesLoadedArray = [...results];
-      console.log(allCountriesLoadedArray);
 
       // results.forEach((element) => {
       //   countriesSelectionBox.appendChild(
@@ -85,7 +85,6 @@ function handleCountrySelection(event) {
 }
 
 function setupDetailPage(result) {
-  console.log(result);
   let languages = "";
   result.languages.forEach((element, index) => {
     if (index != 0) {
@@ -226,7 +225,6 @@ function handleSelectionMenuClick(event) {
       }
     });
   }
-  console.log(regionSelected);
 
   if (regionSelected == "none") {
     setupFilteredView(allCountriesLoadedArray);
@@ -258,20 +256,30 @@ function setupFilteredView(filteredArray) {
   });
 }
 
+function handleInputField() {
+
+  let inputValue = inputFieldCountry.value;
+  let filteredArray = [];
+
+  for (let i = 0; i < allCountriesLoadedArray.length; i++) {
+    if (
+      allCountriesLoadedArray[i].name
+        .substr(0, inputValue.length)
+        .toUpperCase() == inputValue.toUpperCase()
+    ) {
+
+
+      filteredArray.push(allCountriesLoadedArray[i]);
+    }
+  }
+  setupFilteredView(filteredArray);
+}
+
 function init() {
+  inputFieldCountry.addEventListener("input", handleInputField);
   btnToggleDarkMode.addEventListener("click", toggleDarkMode);
-
   btnLeaveDetails.addEventListener("click", toggleShowDetailsPage);
-
   btnRegionSelectorTitle.addEventListener("click", handleSelectionTitleClick);
-
-  // for (let i = 0; i < btnsRegionSelectorMenu.length; i++) {
-  //   btnsRegionSelectorMenu[i].addEventListener(
-  //     "click",
-  //     handleSelectionMenuClick
-  //   );
-  // }
-
   btnsRegionSelectorMenu.forEach((button) => {
     button.addEventListener("click", handleSelectionMenuClick);
   });
