@@ -308,7 +308,12 @@ header {
     .country-detail-text-container {
       display: flex;
 
+      .text-container1 {
+        flex: 1;
+      }
+
       .text-container2 {
+        flex: 1;
         margin-left: 5rem;
       }
 

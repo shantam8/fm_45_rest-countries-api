@@ -627,7 +627,15 @@ header {
     display: -ms-flexbox;
     display: flex;
   }
+  .country-detail-text .country-detail-text-container .text-container1 {
+    -webkit-box-flex: 1;
+        -ms-flex: 1;
+            flex: 1;
+  }
   .country-detail-text .country-detail-text-container .text-container2 {
+    -webkit-box-flex: 1;
+        -ms-flex: 1;
+            flex: 1;
     margin-left: 5rem;
   }
   .country-detail-text .country-detail-text-container p {
