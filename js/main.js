@@ -58,6 +58,10 @@ function setupDetailPage(result) {
     languages += element.name;
   });
   document.querySelector("#country-detail-flag").src = result.flag;
+  document.querySelector("#country-detail-flag").alt = `flag of ${result.name}`;
+  document
+    .querySelector("#country-detail-flag")
+    .setAttribute("aria-label", `flag of ${result.name}`);
   document.querySelector("#country-detail-name").textContent =
     result.name != undefined ? result.name : "not available";
   document.querySelector("#detail-native-name").textContent =
