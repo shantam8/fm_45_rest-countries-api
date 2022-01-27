@@ -1,16 +1,11 @@
 let btnToggleDarkMode = document.querySelector("#btn-toggle-dark-mode");
 let btnLeaveDetails = document.querySelector("#btn-leave-details");
-
-// let btnRegionSelectorTitle = document.getElementById("region-selector-title");
-// let btnsRegionSelectorMenu = document.getElementsByClassName("btn-selection");
-
 let btnRegionSelectorTitle = document.querySelector("#region-selector-title");
 let btnsRegionSelectorMenu = document.querySelectorAll(".btn-selection");
 
 let regionSelectorMenuBox = document.querySelector("#region-selector-menu");
-
 let inputFieldCountry = document.querySelector("#input-field-country");
-let inputOptionsContainer = document.querySelector("#input-options-container");
+let inputFieldContainer = document.querySelector("#input-options-container");
 let countriesSelectionBox = document.querySelector("#countries-selection-box");
 let countryDetails = document.querySelector("#country-details");
 let borderCountriesContainer = document.querySelector(
@@ -18,38 +13,17 @@ let borderCountriesContainer = document.querySelector(
 );
 
 let allCountriesLoadedArray = [];
+let currentFilteredArray = [];
 let scrolledOnY;
 let regionSelected = "none";
+let loadMoreIndex;
 
 function loadAllCountries() {
   fetch("https://restcountries.com/v2/all")
     .then((response) => response.json())
     .then((results) => {
-      for (let i = 80; i <= 100; i++) {
-        countriesSelectionBox.appendChild(
-          createCountryCard(
-            results[i].name,
-            results[i].flag,
-            results[i].population,
-            results[i].region,
-            results[i].capital
-          )
-        );
-      }
-
       allCountriesLoadedArray = [...results];
-
-      // results.forEach((element) => {
-      //   countriesSelectionBox.appendChild(
-      //     createCountryCard(
-      //       element.name,
-      //       element.flag,
-      //       element.population,
-      //       element.region,
-      //       element.capital
-      //     )
-      //   );
-      // });
+      setupFilteredView(results);
     });
 }
 
@@ -73,15 +47,6 @@ function handleCountrySelection(event) {
       }
     }
   });
-
-  // fetch(`https://restcountries.com/v2/name/${targetCountry}?fullText=true`)
-  //   .then((response) => response.json())
-  //   .then((result) => {
-  //     setupDetailPage(result);
-  //     if (!countriesSelectionBox.classList.contains("display-none")) {
-  //       toggleShowDetailsPage();
-  //     }
-  //   });
 }
 
 function setupDetailPage(result) {
@@ -146,7 +111,9 @@ function createCountryCard(name, flag, population, region, capital) {
   let card = createMyElement("div", "card");
   let button = createMyElement("button", "country-flag");
   button.style.backgroundImage = `url(${flag})`;
+  button.setAttribute("aria-label", `open ${name} details`);
   button.addEventListener("click", handleCountrySelection);
+
   let countryInfoBox = createMyElement("div", "country-info-box");
   let title = createMyElement("h2", "country-name");
   title.textContent = name;
@@ -183,12 +150,14 @@ function createBorderCountry(name) {
   let element = document.createElement("button");
   element.classList.add("border-country");
   element.textContent = name;
+  element.setAttribute("aria-label", `open ${name} details`);
+
   element.addEventListener("click", handleCountrySelection);
   return element;
 }
 
 function toggleShowDetailsPage() {
-  inputOptionsContainer.classList.toggle("display-none");
+  inputFieldContainer.classList.toggle("display-none");
   countriesSelectionBox.classList.toggle("display-none");
   countryDetails.classList.toggle("display-none");
   window.scrollTo(0, scrolledOnY);
@@ -200,24 +169,20 @@ function toggleDarkMode() {
   btnToggleDarkMode.children[0].classList.toggle("bi-moon-fill");
 }
 
-function handleSelectionTitleClick(event) {
-  document.querySelector("#region-selector-menu").classList.toggle("open");
-}
-
 function handleSelectionMenuClick(event) {
-  let regionFilterArray = ["Africa", "America", "Asia", "Europe", "Oceania"];
+  inputFieldCountry.value = "";
 
   if (regionSelected == event.target.value) {
     btnRegionSelectorTitle.textContent = "Filter by Region";
-    btnsRegionSelectorMenu.forEach((button, index) => {
-      button.textContent = regionFilterArray[index];
-    });
+
+    resetRegionSelectionMenu();
+
     regionSelected = "none";
   } else {
     regionSelected = event.target.value;
-    btnsRegionSelectorMenu.forEach((button, index) => {
-      button.textContent = regionFilterArray[index];
-    });
+
+    resetRegionSelectionMenu();
+
     btnRegionSelectorTitle.textContent = regionSelected;
     btnsRegionSelectorMenu.forEach((button) => {
       if (button.value == regionSelected) {
@@ -236,14 +201,40 @@ function handleSelectionMenuClick(event) {
     });
     setupFilteredView(filteredArray);
   }
+  toggleRegionSelectionMenuDisplayAndAnimation();
+}
 
-  document.querySelector("#region-selector-menu").classList.toggle("open");
+function toggleRegionSelectionMenuDisplayAndAnimation() {
+  if (regionSelectorMenuBox.classList.contains("open")) {
+    setTimeout(() => {
+      regionSelectorMenuBox.classList.toggle("display-none");
+    }, 200);
+    regionSelectorMenuBox.classList.toggle("open");
+  } else {
+    setTimeout(() => {
+      regionSelectorMenuBox.classList.toggle("open");
+    }, 200);
+    regionSelectorMenuBox.classList.toggle("display-none");
+  }
+}
+
+function resetRegionSelectionMenu() {
+  let regionFilterArray = ["Africa", "America", "Asia", "Europe", "Oceania"];
+  btnsRegionSelectorMenu.forEach((button, index) => {
+    button.textContent = regionFilterArray[index];
+  });
 }
 
 function setupFilteredView(filteredArray) {
   removeChildElementsFromBox(countriesSelectionBox);
+  loadMoreIndex = 0;
 
-  filteredArray.forEach((country) => {
+  currentFilteredArray = [...filteredArray];
+  handleLoadMore();
+}
+
+function fillCountriesSelectionBox(dataArray) {
+  dataArray.forEach((country) => {
     countriesSelectionBox.appendChild(
       createCountryCard(
         country.name,
@@ -256,8 +247,29 @@ function setupFilteredView(filteredArray) {
   });
 }
 
-function handleInputField() {
+function handleLoadMore() {
+  loadMoreIndex += 10;
+  removeChildElementsFromBox(countriesSelectionBox);
 
+  if (currentFilteredArray.length >= loadMoreIndex) {
+    let tempFilteredArray = currentFilteredArray.filter((country, index) => {
+      if (index >= 0 && index < loadMoreIndex) {
+        return country;
+      }
+    });
+    fillCountriesSelectionBox(tempFilteredArray);
+
+    let loadMoreBtn = document.createElement("button");
+    loadMoreBtn.id = "btn-load-more";
+    loadMoreBtn.textContent = "Load more";
+    loadMoreBtn.addEventListener("click", handleLoadMore);
+    countriesSelectionBox.appendChild(loadMoreBtn);
+  } else {
+    fillCountriesSelectionBox(currentFilteredArray);
+  }
+}
+
+function handleInputField() {
   let inputValue = inputFieldCountry.value;
   let filteredArray = [];
 
@@ -267,11 +279,12 @@ function handleInputField() {
         .substr(0, inputValue.length)
         .toUpperCase() == inputValue.toUpperCase()
     ) {
-
-
       filteredArray.push(allCountriesLoadedArray[i]);
     }
   }
+  btnRegionSelectorTitle.textContent = "Filter by Region";
+  resetRegionSelectionMenu();
+  regionSelected = "none";
   setupFilteredView(filteredArray);
 }
 
@@ -279,11 +292,13 @@ function init() {
   inputFieldCountry.addEventListener("input", handleInputField);
   btnToggleDarkMode.addEventListener("click", toggleDarkMode);
   btnLeaveDetails.addEventListener("click", toggleShowDetailsPage);
-  btnRegionSelectorTitle.addEventListener("click", handleSelectionTitleClick);
+  btnRegionSelectorTitle.addEventListener(
+    "click",
+    toggleRegionSelectionMenuDisplayAndAnimation
+  );
   btnsRegionSelectorMenu.forEach((button) => {
     button.addEventListener("click", handleSelectionMenuClick);
   });
-
   loadAllCountries();
 }
 

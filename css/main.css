@@ -225,6 +225,7 @@ header {
   transition: all 0.2s ease-in-out;
   position: relative;
   border-radius: 8px;
+  overflow: hidden;
 }
 
 .input-container i {
@@ -245,36 +246,6 @@ header {
   color: var(--input-color);
   -webkit-transition: all 0.2s ease-in-out;
   transition: all 0.2s ease-in-out;
-}
-
-.input-container .autocomplete-items {
-  position: absolute;
-  background-color: var(--element-color);
-  top: 100%;
-  left: 0;
-  right: 0;
-  z-index: 200;
-}
-
-.input-container .autocomplete-items div {
-  cursor: pointer;
-  padding: 1rem;
-  background-color: var(--element-color);
-  border: 1px solid var(--accent-color);
-  border-top: none;
-}
-
-.input-container .autocomplete-items div span {
-  font-weight: 600;
-}
-
-.input-container .autocomplete-items div:hover {
-  background-color: var(--accent-color);
-}
-
-.input-container .autocomplete-active {
-  background-color: var(--accent-color) !important;
-  color: var(--text-color);
 }
 
 #region-selector-container {
@@ -336,6 +307,7 @@ header {
   overflow: hidden;
   -webkit-transition: all 0.2s ease-in-out;
   transition: all 0.2s ease-in-out;
+  z-index: 500;
 }
 
 #region-selector-container #region-selector-menu.open {
@@ -346,6 +318,10 @@ header {
   max-height: 250px;
 }
 
+#region-selector-container #region-selector-menu.display-none {
+  display: none;
+}
+
 #countries-selection-box {
   margin-left: 0.8rem;
   margin-right: 0.8rem;
@@ -354,9 +330,12 @@ header {
   display: flex;
   -ms-flex-wrap: wrap;
       flex-wrap: wrap;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: start;
   gap: 1rem;
   padding-top: 2rem;
 }
@@ -423,6 +402,28 @@ header {
   display: none;
 }
 
+#countries-selection-box #btn-load-more {
+  -webkit-box-shadow: 0px 0px 7px 3px var(--accent-color);
+          box-shadow: 0px 0px 7px 3px var(--accent-color);
+  -webkit-transition: all 0.2s ease-in-out;
+  transition: all 0.2s ease-in-out;
+  -webkit-transition: background-color 0.2s ease-in-out;
+  transition: background-color 0.2s ease-in-out;
+  display: block;
+  width: 265px;
+  padding: 0.5rem 0;
+  border: none;
+  background-color: var(--element-color);
+  -ms-flex-item-align: center;
+      -ms-grid-row-align: center;
+      align-self: center;
+  transition: all 0.2s ease-in-out;
+}
+
+#countries-selection-box #btn-load-more:hover, #countries-selection-box #btn-load-more:focus {
+  background-color: var(--accent-color);
+}
+
 .card {
   -webkit-box-shadow: 0px 0px 7px 3px var(--accent-color);
           box-shadow: 0px 0px 7px 3px var(--accent-color);
@@ -434,6 +435,8 @@ header {
   background-color: var(--element-color);
   transition: all 0.2s ease-in-out;
   overflow: hidden;
+  -webkit-transform-origin: top right;
+          transform-origin: top right;
 }
 
 .card button {
@@ -442,6 +445,11 @@ header {
   border: none;
   background-position: center;
   background-size: cover;
+}
+
+.card:hover {
+  -webkit-transform: rotateZ(-2deg);
+          transform: rotateZ(-2deg);
 }
 
 .country-info-box {
@@ -553,7 +561,6 @@ header {
 #country-detail-flag {
   width: 100%;
   height: auto;
-  background-color: turquoise;
 }
 
 .country-detail-text {
@@ -706,7 +713,7 @@ header {
             align-items: center;
     gap: 2rem;
   }
-  #country-details-container #country-detail-flag {
+  #country-details-container div:first-child {
     -webkit-box-flex: 1;
         -ms-flex: 1;
             flex: 1;

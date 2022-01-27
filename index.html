@@ -16,8 +16,7 @@
     <header>
       <div class="title-container">
         <h1>Where in the world?</h1>
-
-        <button id="btn-toggle-dark-mode" class="dark-mode-container">
+        <button id="btn-toggle-dark-mode" class="dark-mode-container" aria-label="toggle dark mode">
           <i class="bi bi-moon"></i>
           Dark Mode
         </button>
@@ -28,7 +27,11 @@
       <section id="input-options-container">
         <div class="input-container">
           <i class="bi bi-search"></i>
-          <input id="input-field-country" type="text" placeholder="Search for a country..." />
+          <input
+            id="input-field-country"
+            type="text"
+            placeholder="Search for a country..."
+          />
         </div>
 
         <div id="region-selector-container">
@@ -36,24 +39,25 @@
             id="region-selector-title"
             type="button"
             class="btn-selection-title"
+            aria-label="toggle region selection menu"
           >
             Filter by Region
           </button>
           <i class="bi bi-chevron-down"></i>
-          <div id="region-selector-menu" class="button-group">
-            <button type="button" class="btn-selection" value="Africa">
+          <div id="region-selector-menu" class="button-group display-none">
+            <button type="button" class="btn-selection" value="Africa" aria-label="select Africa">
               Africa
             </button>
-            <button type="button" class="btn-selection" value="Americas">
+            <button type="button" class="btn-selection" value="Americas" aria-label="select America">
               Americas
             </button>
-            <button type="button" class="btn-selection" value="Asia">
+            <button type="button" class="btn-selection" value="Asia" aria-label="select Asia">
               Asia
             </button>
-            <button type="button" class="btn-selection" value="Europe">
+            <button type="button" class="btn-selection" value="Europe" aria-label="select Europe">
               Europe
             </button>
-            <button type="button" class="btn-selection" value="Oceania">
+            <button type="button" class="btn-selection" value="Oceania" aria-label="select Oceania">
               Oceania
             </button>
           </div>
@@ -63,12 +67,15 @@
       <section id="countries-selection-box"></section>
 
       <section id="country-details" class="display-none">
-        <button id="btn-leave-details">
+        <button id="btn-leave-details" aria-label="back to main page">
           <i class="bi bi-arrow-left"></i> Back
         </button>
 
         <div id="country-details-container">
-          <img id="country-detail-flag" src="" />
+<div>
+
+  <img id="country-detail-flag" src="" />
+</div>
 
           <div class="country-detail-text">
             <h2 id="country-detail-name"></h2>
@@ -107,11 +114,7 @@
             </div>
 
             <h3>Border Countries:</h3>
-            <div id="border-countries-container">
-              <span class="border-country"> France </span>
-              <span class="border-country"> Germany </span>
-              <span class="border-country"> Netherlands </span>
-            </div>
+            <div id="border-countries-container"></div>
           </div>
         </div>
       </section>

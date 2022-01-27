@@ -127,7 +127,7 @@ header {
     transition: all 0.2s ease-in-out;
   }
 
-  i{
+  i {
     position: absolute;
     top: 1rem;
     right: 0.5rem;
@@ -143,10 +143,15 @@ header {
     border-radius: 8px;
     overflow: hidden;
     transition: all 0.2s ease-in-out;
+    z-index: 500;
 
     &.open {
       @include box-shadow;
       max-height: 250px;
+    }
+
+    &.display-none {
+      display: none;
     }
   }
 }
@@ -155,12 +160,25 @@ header {
   @include container-width;
   display: flex;
   flex-wrap: wrap;
-  align-items: center;
+  justify-content: center;
+  align-items: start;
   gap: 1rem;
   padding-top: 2rem;
 
   &.display-none {
     display: none;
+  }
+
+  #btn-load-more {
+    @include box-shadow;
+    @include hover-shadow;
+    display: block;
+    width: 265px;
+    padding: 0.5rem 0;
+    border: none;
+    background-color: var(--element-color);
+    align-self: center;
+    transition: all 0.2s ease-in-out;
   }
 }
 
@@ -173,6 +191,7 @@ header {
   background-color: var(--element-color);
   transition: all 0.2s ease-in-out;
   overflow: hidden;
+  transform-origin: top right;
 
   button {
     width: 100%;
@@ -180,6 +199,10 @@ header {
     border: none;
     background-position: center;
     background-size: cover;
+  }
+
+  &:hover {
+    transform: rotateZ(-2deg);
   }
 }
 
@@ -225,7 +248,6 @@ header {
 #country-detail-flag {
   width: 100%;
   height: auto;
-  background-color: turquoise;
 }
 
 .country-detail-text {
@@ -358,7 +380,7 @@ header {
     align-items: center;
     gap: 2rem;
 
-    #country-detail-flag {
+    div:first-child {
       flex: 1;
     }
 
