@@ -751,7 +751,7 @@ header {
     font-size: 1.4rem;
   }
   #countries-selection-box {
-    gap: 4rem;
+    gap: 2rem;
   }
   .country-detail-text .country-detail-text-container p {
     font-size: 1rem;
@@ -765,6 +765,14 @@ header {
 @media screen and (min-width: 80rem) {
   #country-details-container {
     gap: 8rem;
+  }
+}
+
+@media screen and (min-width: 90rem) {
+  #countries-selection-box {
+    -webkit-box-pack: justify;
+        -ms-flex-pack: justify;
+            justify-content: space-between;
   }
 }
 /*# sourceMappingURL=main.css.map */

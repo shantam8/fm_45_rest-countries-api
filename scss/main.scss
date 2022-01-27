@@ -425,7 +425,7 @@ header {
   }
 
   #countries-selection-box {
-    gap: 4rem;
+    gap: 2rem;
   }
 
   .country-detail-text {
@@ -445,5 +445,11 @@ header {
 @media screen and (min-width: 80rem) {
   #country-details-container {
     gap: 8rem;
+  }
+}
+
+@media screen and (min-width: 90rem) {
+  #countries-selection-box {
+    justify-content: space-between;
   }
 }
