@@ -330,9 +330,9 @@ header {
   display: flex;
   -ms-flex-wrap: wrap;
       flex-wrap: wrap;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
+  -webkit-box-pack: space-evenly;
+      -ms-flex-pack: space-evenly;
+          justify-content: space-evenly;
   -webkit-box-align: start;
       -ms-flex-align: start;
           align-items: start;
@@ -738,9 +738,6 @@ header {
   #input-options-container .input-container {
     width: 480px;
   }
-  #countries-selection-box {
-    gap: 3rem;
-  }
   #country-details-container {
     gap: 3rem;
   }
@@ -751,7 +748,7 @@ header {
     font-size: 1.4rem;
   }
   #countries-selection-box {
-    gap: 2rem;
+    row-gap: 3rem;
   }
   .country-detail-text .country-detail-text-container p {
     font-size: 1rem;
@@ -766,13 +763,20 @@ header {
   #country-details-container {
     gap: 8rem;
   }
-}
-
-@media screen and (min-width: 90rem) {
   #countries-selection-box {
     -webkit-box-pack: justify;
         -ms-flex-pack: justify;
             justify-content: space-between;
+  }
+}
+
+@media screen and (min-width: 100rem) {
+  #countries-selection-box {
+    -webkit-box-pack: start;
+        -ms-flex-pack: start;
+            justify-content: start;
+    -webkit-column-gap: 4.58rem;
+            column-gap: 4.58rem;
   }
 }
 /*# sourceMappingURL=main.css.map */

@@ -160,7 +160,7 @@ header {
   @include container-width;
   display: flex;
   flex-wrap: wrap;
-  justify-content: center;
+  justify-content: space-evenly;
   align-items: start;
   gap: 1rem;
   padding-top: 2rem;
@@ -406,10 +406,6 @@ header {
     }
   }
 
-  #countries-selection-box {
-    gap: 3rem;
-  }
-
   #country-details-container {
     gap: 3rem;
   }
@@ -425,7 +421,7 @@ header {
   }
 
   #countries-selection-box {
-    gap: 2rem;
+    row-gap: 3rem;
   }
 
   .country-detail-text {
@@ -446,10 +442,15 @@ header {
   #country-details-container {
     gap: 8rem;
   }
-}
 
-@media screen and (min-width: 90rem) {
   #countries-selection-box {
     justify-content: space-between;
+  }
+}
+
+@media screen and (min-width: 100rem) {
+  #countries-selection-box {
+    justify-content: start;
+    column-gap: 4.58rem;
   }
 }
